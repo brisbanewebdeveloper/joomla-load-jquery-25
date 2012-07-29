@@ -49,7 +49,7 @@ $data = $doc->getHeadData();
 
 if (count($data['scripts'])) {
     $filter  = implode('|', explode("\n", preg_replace('/\r/', '', $params->get('include'))));
-    $uriRoot = preg_replace('/\//', '\/', JURI::root(true));
+    $uriRoot = preg_replace('#/#', '\/', JURI::root(true));
     $noMootools = ($params->get('mootools', '1') == '0');
     foreach($data['scripts'] as $script => $type) {
         if (strpos($script, 'jquery') === false) {
