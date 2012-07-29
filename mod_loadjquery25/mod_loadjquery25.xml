@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" method="upgrade">
+    <name>Load jQuery Module</name>
+    <creationDate>July 2012</creationDate>
+    <copyright>Hiro Nozu - All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <authorEmail>contact@ideas.forjoomla.net</authorEmail>
+    <authorUrl>http://ideas.forjoomla.net/</authorUrl>
+    <version>2.5.0</version>
+    <description>This module loades jQuery. Put this module as geing loaded at last in the module position you get from Diagnose mode.</description>
+    <files>
+        <filename module="mod_loadjquery25">mod_loadjquery25.php</filename>
+		<filename>index.html</filename>
+		<filename>jquery-1.4.2.min.js</filename>
+		<filename>jquery-1.6.2.min.js</filename>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="test" type="radio" default="1" label="Diagnose Mode" description="Set Yes to figure which module position you have to place this module">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+                <field name="include" type="textarea" cols="30" rows="10" default="jquery-sample-plugin.js$" label="Include JS file" description="This module takes out the SCRIPT tag having the value jquery in src attribute. Set filenames you want to keep having the word (e.g. jquery-plugin-sample.js$). It is recommended to add the symbol dollar at the end of the file name. And one more thing. Do not leave the line having only new line code because if you do that, this parameter does not work whatever you try to filter!!" ></field>
+                <field name="source" type="filelist" directory="modules/mod_loadjquery25" filter="\.js$" default="jquery-1.6.2.min.js" label="Source" description="Select jQuery you want to use. If you want to use other version, 1: Get jQuery file. 2: Put jQuery.noConflict(); at the end of jQuery file (you do not need this step if you use only jQuery). 3: Upload jQuery file to modules/mod_loadjquery folder. 4: Select jQuery file from the dropdown list. jQuery file must finish with the extension js." />
+                <field name="mootools" type="radio" default="1" label="Load Mootools" description="Set No to not load Mootools. When you set No here all the scripts stored in Joomla buffer will not be loaded except the ones matching Include JS File parameter. For example, if set No here and put core.js$ to Include JS File parameter, you can avoid loading mootools-more.js.">
+			        <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
