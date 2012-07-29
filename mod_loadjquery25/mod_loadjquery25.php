@@ -53,9 +53,9 @@ if (count($data['scripts'])) {
     $noMootools = ($params->get('mootools', '1') == '0');
     foreach($data['scripts'] as $script => $type) {
         if (strpos($script, 'jquery') === false) {
-            if ($noMootools and ! preg_match('/'.$filter.'/i', $script)) continue;
+            if ($noMootools and ! preg_match('#'.$filter.'#i', $script)) continue;
         }else{
-            if ( ! preg_match('/'.$filter.'/i', $script)) continue;
+            if ( ! preg_match('#'.$filter.'#i', $script)) continue;
         }
         if ( ! preg_match('/^http/', $script)) // To make CssjsCompressor work
             $script = JURI::root() . preg_replace('/^\//', '', preg_replace('/'.$uriRoot.'/', '', $script));
